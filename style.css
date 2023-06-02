@@ -1,77 +1,39 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-#wrapper {
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background: url(https://user-images.githubusercontent.com/26748614/112760946-182a8300-8ff9-11eb-9881-8ca96150852e.jpg) 75% 0% /140%;
-    animation: bg 25s linear infinite paused;
-}
-
-.bg {
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(to right, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-  background-size: 400% 100%;
-  animation: bg 20s infinite;
-}
-
-@keyframes bg {
-  0% {
-      background-position: 0% 50%;
+body{
+    margin: 0px;
+    font-size: 150px;  
+    background: #fff;
   }
-
-  50% {
-      background-position: 100% 50%;
+  .container{
+    position: absolute;
+    text-align: justify;
+    text-align-last: justify;
+    margin: 50px;
   }
-
-  100% {
-      background-position: 0% 50%;
+  .hoge{
+    position: absolute;
+    color: #fff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;  
+    animation-name: blink;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+    
   }
-}
-
-/* === SVG === */
-svg {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100vh;
-}
-
-svg polygon {
-  position: absolute;
-}
-
-svg polygon.center {
-  opacity:0.7;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-svg polygon.center:hover {
-  opacity:0.2;
-}
-
-#startText {
-  font-family: 'Turret Road', cursive;
-  font-weight: 700;
-  fill:#fff;
-  user-select: none;
-  pointer-events: none;
-}
-
-#restartText {
-  font-family: 'Turret Road', cursive;
-  font-weight: 700;
-  fill:rgb(255, 255, 255);
-  user-select: none;
-  pointer-events: none;
-  opacity: 0;
-}
+  .fuga{
+    color: #002;
+  }
+  
+  
+  @keyframes blink {
+    0% { transform: translateY(0px); }
+    12% { transform: translateY(80px); }
+    24% { transform: translateY(0px); }
+    36% { transform: translateY(-80px); }
+    48% { transform: translateY(0px); }
+    60% { transform: translateX(80px); }
+    72% { transform: translateX(0px); }
+    84% { transform: translateX(-80px); }
+    100% { transform: translateX(0px); }
+  }
