@@ -1,52 +1,16 @@
-let myST = new SplitText('#msg', {type: 'words,chars'})
+import gsap from 'https://cdn.skypack.dev/gsap@3.11.0'
+let active = true
 
-let tl = gsap.timeline({
-  repeat: -1
-});
-let duration = 0.65;
-let stagger = 0.15;
-tl.to(myST.chars, {
-	duration: duration,
-	'--wght': 900,
-	stagger: {
-		each: stagger,		
-		repeat: -1,
-    repeatDelay: 2.6,
-		yoyo: true
-	},
-	ease: 'sine.inOut'
+
+const UPDATE_ROTATION = ({ x }) => {
+	gsap.set(document.documentElement, {
+		'--rotation-y': gsap.utils.mapRange(0, window.innerWidth, -180, 180)(x)
+	})
+}
+
+document.body.addEventListener('pointermove', UPDATE_ROTATION)
+
+document.body.addEventListener('click', () => {
+	active = !active
+	document.documentElement.style.setProperty('--on', active ? 1 : 0)
 })
-.to(myST.chars, {
-	duration: duration,
-	'--ESHP': 3,
-  color: '#F2F7F2',
-	stagger: {
-		each: stagger,		
-		repeat: -1,
-    repeatDelay: 2.6,
-		yoyo: true
-	},
-	ease: 'sine.inOut'
-}, 0)
-.to(myST.chars, {
-	duration: duration,
-	'--wght': 20,
-	stagger: {
-		each: stagger,
-    repeatDelay: 2.6,
-		repeat: -1,    
-		yoyo: true
-	},
-	ease: 'sine.inOut'
-}, 1.3)
-.to(myST.chars, {
-	duration: duration,
-	'--ESHP': 2,
-	stagger: {
-		each: stagger,		
-    repeatDelay: 2.6,
-		repeat: -1,    
-		yoyo: true
-	},
-	ease: 'sine.inOut'
-}, 1.3)
